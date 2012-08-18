@@ -7,9 +7,6 @@
 " wgx731's vimified vimrc file
 "
 
-set nocompatible
-filetype off
-
 " Load external configuration before anything else {{{
 if filereadable(expand("~/.vim/before.vimrc"))
   source ~/.vim/before.vimrc
@@ -202,8 +199,7 @@ endif
 " Basic
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-call pathogen#infect()      " update pathogen to load plugin
-call pathogen#helptags()    " enable pathogen for help tags
+set nocompatible
 
 syntax on                   " syntax highlighting on
 filetype on                 " enable file type detection
@@ -254,7 +250,7 @@ if has('gui_running')
 
 else
     let &t_Co=256
-    colorscheme motus
+    colorscheme badwolf
 endif
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -367,15 +363,11 @@ set autoread
 " Keybindings
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-" Shortcut to edit .vimrc file
-" -------------------------------------------
-nmap ,rc :tabedit $MYVIMRC   
-
 " Shortcut to clear highlighted search
 " -------------------------------------------
 "make <c-l> clear the highlight as well as redraw
 nnoremap <C-L> :nohls<CR><C-L>
-inoremap <C-L> <C-O>:nohls<CR>
+cnoremap <C-L> <C-O>:nohls<CR>
 
 " Leader Keys
 " -------------------------------------------
