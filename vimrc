@@ -70,12 +70,11 @@ if count(g:vimified_packages, 'general')
     Bundle 'michaeljsmith/vim-indent-object'
     let g:indentobject_meaningful_indentation = ["haml", "sass", "python", "yaml", "markdown"]
 
-    Bundle 'mirell/vim-matchit'
     Bundle 'kien/ctrlp.vim'
     Bundle 'vim-scripts/scratch.vim'
 
     Bundle 'vim-scripts/bufexplorer.zip'
-    Bundle 'vim-scripts/taglist'
+    Bundle 'vim-scripts/taglist.vim'
 endif
 " }}}
 
@@ -153,10 +152,9 @@ if count(g:vimified_packages, 'html')
     Bundle 'tpope/vim-haml'
     Bundle 'juvenn/mustache.vim'
     Bundle 'othree/html5.vim'
+    Bundle 'tpope/vim-markdown'
 
     " --
-    au BufRead,BufNewFile *.md          set ft=mkd tw=80 ts=2 sw=2 expandtab
-    au BufRead,BufNewFile *.markdown    set ft=mkd tw=80 ts=2 sw=2 expandtab
     let g:html5_event_handler_attributes_complete = 0
     let g:html5_rdfa_attributes_complete = 0
     let g:html5_microdata_attributes_complete = 0
@@ -186,7 +184,6 @@ endif
 " _. Color {{{
 if count(g:vimified_packages, 'color')
     Bundle 'sjl/badwolf'
-    Bundle 'altercation/vim-colors-solarized'
     Bundle 'tomasr/molokai'
     Bundle 'zaiste/Atom'
 
@@ -198,8 +195,6 @@ endif
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " Basic
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
-set nocompatible
 
 syntax on                   " syntax highlighting on
 filetype on                 " enable file type detection
@@ -220,7 +215,6 @@ set noexrc                  " don't use local version of .(g)vimrc, .exrc
 
 if v:version >= 703
     " undo settings
-    set undodir=~/.vim/undofiles
     set undofile
 endif
 
@@ -436,6 +430,128 @@ map <Leader><Leader> :!
 " -------------------------------------------
 :nnoremap <silent> <leader>k :pu! _<cr>:']+1<cr>   " on top
 :nnoremap <silent> <leader>j :pu _<cr>:'[-1<cr>    " at the bottom
+
+" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+" Helpers
+" <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+" Swapping Split Screens
+" -------------------------------------------
+
+function! MarkWindowSwap()
+    let g:markedWinNum = winnr()
+endfunction
+
+function! DoWindowSwap()
+    "Mark destination
+    let curNum = winnr()
+    let curBuf = bufnr( "%" )
+    exe g:markedWinNum . "wincmd w"
+    "Switch to source and shuffle dest->source
+    let markedBuf = bufnr( "%" )
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' curBuf
+    "Switch to dest and shuffle source->dest
+    exe curNum . "wincmd w"
+    "Hide and open so that we aren't prompted and keep history
+    exe 'hide buf' markedBuf 
+endfunction
+
+nmap <silent> <leader>mw :call MarkWindowSwap()<CR>
+nmap <silent> <leader>pw :call DoWindowSwap()<CR>
+
+
+" Make sure Vim returns to the same line when you reopen a file
+" -------------------------------------------------------------
+augroup line_return
+    au!
+    au BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \   execute 'normal! g`"zvzz"' |
+                \ endif
+augroup END
+
+" Highlighting
+" ------------------------------------------------------------------
+
+" Syntax
+" Show syntax highlighting groups for word under cursor
+" ------------------------------------------------------------------
+
+function! <SID>SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+nmap <C-g> :call <SID>SynStack()<CR>
+
+" Toggle Indicators
+" -------------------------------------------------------------
+" We'll use &number and &relativenumber (mutually eclusive) as proxies for 
+" the toggle state of all our preferred indicator UI
+function! ToggleIndicators()
+    if (&number || &relativenumber) " turn off indicators
+        let b:IndicatorNumber = 0
+        let b:IndicatorRelativeNumber = 0
+        let b:IndicatorCursorColumn = 0
+        let b:IndicatorCursorLine = 0
+        let b:IndicatorColorColumn = 0
+        let b:IndicatorLastStatus = 0
+        if &number
+            let b:IndicatorNumber = 1
+            set nonumber
+        else " must be relativenumber
+            let b:IndicatorRelativeNumber = 1
+            set norelativenumber
+        endif
+        if &cursorcolumn==1
+            let b:IndicatorCursorColumn = 1
+            set nocursorcolumn
+        endif
+        if &cursorline
+            let b:IndicatorCursorLine = 1
+            set nocursorline
+        endif
+        if &colorcolumn > 0
+            let b:IndicatorColorColumn = &colorcolumn
+            set colorcolumn=0
+        endif
+        if &laststatus > 0
+            let b:IndicatorLastStatus = &laststatus
+            set laststatus=0
+        endif
+    else                            " turn on indicators
+        if b:IndicatorNumber
+            set number
+        else " must be relativenumber
+            set relativenumber
+        endif
+        if b:IndicatorCursorColumn
+            set cursorcolumn
+        endif
+        if b:IndicatorCursorLine
+            set cursorline
+        endif
+        if b:IndicatorColorColumn > 0
+            exe "set colorcolumn=" . b:IndicatorColorColumn
+        endif
+        if b:IndicatorLastStatus > 0
+            exe "set laststatus=" . b:IndicatorLastStatus
+        endif
+    endif
+endfunction
+
+nnoremap <F3> :call ToggleIndicators()<CR>
+inoremap <F3> <ESC>:call ToggleIndicators()<CR>a
+vnoremap <F3> <ESC>:call ToggleIndicators()<CR>
+
+" Toggle CursorColumn 
+" -------------------------------------------------------------
+nnoremap <F4> :set invcursorcolumn<CR>
+inoremap <F4> <ESC>:set invcursorcolumn<CR>a
+vnoremap <F4> <ESC>:set invcursorcolumn<CR>
 
 " }}}
 

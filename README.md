@@ -237,6 +237,10 @@ Vim syntax file for mustache and handlebars(?)
 
 HTML5 omnicomplete funtion and syntax for Vim. Based on the default htmlcomplete.vim
 
+#### [vim-markdown](https://github.com/tpope/vim-markdown)
+
+Vim Markdown runtime files
+
 ### CSS
 
 #### [Better-CSS-Syntax-for-Vim](https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim)
