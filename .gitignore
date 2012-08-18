@@ -1,5 +1,30 @@
-bundle/
-*.swp
-tmp/
+## Linux ignore
+.*
+!.gitignore
+*~
+
+## OSX ignore
 .DS_Store
+Icon
+# Thumbnails
+._*
+# Files that might appear on external disk
+.Spotlight-V100
+
+##Windows ignore
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+# Folder config file
+Desktop.ini
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## Vim ignore
+bundle/
+tmp/
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
 *.vimrc
