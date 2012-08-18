@@ -13,7 +13,7 @@ How to install
 Grab the project:
 
     cd 
-    git clone git://github.com/zaiste/vimified.git
+    git clone git://github.com/wgx731/vimified.git
     ln -sfn vimified ~/.vim
     ln -sfn vimified/vimrc ~/.vimrc
     cd vimified
@@ -63,11 +63,10 @@ Avaible packages:
  * os
  * coding 
  * ruby
+ * python
  * html
  * css
  * js 
- * clojure
- * haskel
  * color
 
 ### General 
@@ -148,6 +147,10 @@ Fuzzy file, buffer, mru and tag finder.
 
 Buffer Explorer / Browser.
 
+#### [taglist](https://github.com/vim-scripts/taglist.vim)
+
+Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
+
 ### Fancy
 
 #### [powerline](https://github.com/Lokaltog/vim-powerline)
@@ -214,6 +217,12 @@ Refactoring tool for Ruby in vim!
   - [RRenameLocalVariable](http://justinram.wordpress.com/2010/12/31/vim-ruby-refactoring-rename-local-variable/) : `,rrlv`
   - [RRenameInstanceVariable](http://justinram.wordpress.com/2010/12/31/vim-ruby-refactoring-rename-instance-variable/) : `,rriv`
 
+### PYTHON
+
+#### [indentpython.vim](https://github.com/vim-scripts/indentpython.vim)
+
+An alternative indentation script for python
+
 ### HTML
 
 #### [vim-haml](https://github.com/tpope/vim-haml)
@@ -224,37 +233,29 @@ Vim runtime files for Haml, Sass, and SCSS.
 
 Vim syntax file for mustache and handlebars(?)
 
+#### [html5.vim](https://github.com/othree/html5.vim)
+
+HTML5 omnicomplete funtion and syntax for Vim. Based on the default htmlcomplete.vim
+
 ### CSS
+
+#### [Better-CSS-Syntax-for-Vim](https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim)
+
+Highlights for full CSS2, most of HTML5 & CSS3 properties (include prefix like -moz-).
+
+#### [vim-less](https://github.com/groenewege/vim-less)
+
+This vim bundle adds syntax highlighting, indenting and autocompletion for the dynamic stylesheet language LESS.
 
 ### JS
 
 #### [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 
-#### [jacinto.vim](https://github.com/alfredodeza/jacinto.vim)
+#### [vim-javascript](https://github.com/pangloss/vim-javascript)
 
-Format and validate JSON files.
+#### [vim-json](https://github.com/leshill/vim-json)
 
-    :Jacinto validate
-
-or
-
-    :Jacinto syntax
-
-### Clojure
-
-#### [vimclojure](https://github.com/zaiste/VimClojure)
-
-### Haskell
-
-[vim-syntax-haskell-cabal](https://github.com/Twinside/vim-syntax-haskell-cabal)
-
-Syntax file for Haskell's cabal syntax file
-
-#### [haskellmode-vim](https://github.com/lukerandall/haskellmode-vim)
-
-An unpacked copy of the haskellmode vimball. Ping me if it needs updating.
-
-####
+#### [vim-jquery](https://github.com/itspriddle/vim-jquery)
 
 ### Color 
 
@@ -277,13 +278,6 @@ A Vim color scheme.
 
 pastie.vim: interface for pastie.org 
 
-### Not active
-
-#### [neocomplcache](https://github.com/Shougo/neocomplcache.git)
-
-Ultimate auto-completion system for Vim.
-
-*Disactivated*
 
 ## Call for Help
 
@@ -292,6 +286,7 @@ If you have ideas on how to make this Vim configration framework better, don’t
 ### Contributors
 
  * [sharnik](https://github.com/sharnik)
+ * [wgx731](https://github.com/wgx731)
 
 ### Inspired by 
 
@@ -300,3 +295,4 @@ If you have ideas on how to make this Vim configration framework better, don’t
  * [skwp's dotfiles](https://github.com/skwp/dotfiles)
 
 ### Cooked by [Zaiste!](http://zaiste.net)
+### Used & Modified by [wgx731](http://twitter.com/wgx731)
