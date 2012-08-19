@@ -247,11 +247,6 @@ This vim bundle adds syntax highlighting, indenting and autocompletion for the d
 
 Molokai color scheme for Vim. 
 
-####
-[vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
-
-precision colorscheme for the vim text editor
-
 #### [badwolf](https://github.com/sjl/badwolf)
 
 A Vim color scheme.
