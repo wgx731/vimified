@@ -42,11 +42,6 @@ Bundle 'gmarik/vundle'
 
 " _. General {{{
 if count(g:vimified_packages, 'general')
-    Bundle "mileszs/ack.vim"
-    nnoremap <leader>a :Ack!<space>
-
-    Bundle 'matthias-guenther/hammer.vim' 
-    nmap <leader>p :Hammer<cr>
 
     Bundle 'tsaleh/vim-align'
     Bundle 'tpope/vim-endwise'
@@ -103,8 +98,6 @@ if count(g:vimified_packages, 'coding')
     Bundle 'majutsushi/tagbar' 
     nmap <leader>t :TagbarToggle<CR>
 
-    Bundle 'gregsexton/gitv'
-
     Bundle 'scrooloose/nerdcommenter' 
     nmap <leader># :call NERDComment(0, "invert")<cr>
     vmap <leader># :call NERDComment(0, "invert")<cr>
@@ -123,9 +116,6 @@ if count(g:vimified_packages, 'coding')
     let g:syntastic_enable_signs=1
     let g:syntastic_auto_loc_list=1
 
-    " --
-
-    autocmd FileType gitcommit set tw=68 spell
 endif
 " }}}
 
@@ -195,6 +185,9 @@ endif
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " Basic
 " <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+call pathogen#infect()      " update pathogen to load plugin
+call pathogen#helptags()    " enable pathogen for help tags
 
 syntax on                   " syntax highlighting on
 filetype on                 " enable file type detection
@@ -408,10 +401,6 @@ nmap <C-k>      <C-w>k
 nmap <C-h>      <C-w>h
 nmap <C-l>      <C-w>l
 
-" Remove highlighting post-search
-" -------------------------------------------
-nmap <leader>y  :nohls<CR>
-
 " Auto-indent whole file
 " -------------------------------------------
 nmap <leader>=  gg=G``
@@ -552,6 +541,10 @@ vnoremap <F3> <ESC>:call ToggleIndicators()<CR>
 nnoremap <F4> :set invcursorcolumn<CR>
 inoremap <F4> <ESC>:set invcursorcolumn<CR>a
 vnoremap <F4> <ESC>:set invcursorcolumn<CR>
+
+" NERDCommenter
+" ------------------------------
+map <leader>/   <plug>NERDCommenterToggle
 
 " }}}
 

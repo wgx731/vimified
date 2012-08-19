@@ -1,4 +1,4 @@
-" vimrc
+" gvimrc
 " Author: wgx731 <wgx731@gmail.com>
 " Source: https://github.com/wgx731/vimified
 "

@@ -30,7 +30,7 @@ Set up Vundle
 Set up your local configuration via `local.vimrc` file and choose package you
 want to use:
 
-    echo "let g:vimified_packages = ['general', 'coding', 'clojure', 'color']" > local.vimrc
+    echo "let g:vimified_packages = ['general', 'coding', 'os', 'css', 'js', 'fancy', 'color']" > local.vimrc
 
 Install plugins: 
 
@@ -70,18 +70,6 @@ Avaible packages:
  * color
 
 ### General 
-
-#### [ack.vim](http://github.com/mileszs/ack.vim)
-
-Vim plugin for the Perl module / CLI script 'ack'. 
-
-**Command**: `,a` 
-
-#### [hammer](https://github.com/matthias-guenther/hammer.vim)
-
-vim, your markup language of choice, and your browser of choice. 
-
-**Command**: `,p` 
 
 #### [vim-align](https://github.com/tsaleh/vim-align)
 
@@ -131,10 +119,6 @@ Mirror of yankring.vim
 
 Vim plugin that defines a new text object representing lines of code at the same indent level. Useful for python/vim scripts, etc. 
 
-#### [vim-matchit](https://github.com/mirell/vim-matchit)
-
-The matchit.vim script allows you to configure % to match more than just single characters.
-
 #### [ctrlp](https://github.com/kien/ctrlp.vim)
 
 Fuzzy file, buffer, mru and tag finder.
@@ -170,10 +154,6 @@ The ultimate vim statusline utility.
 Vim plugin that displays tags in a window, ordered by class etc. 
 
 **Command:** `,t`
-
-#### [gitv](https://github.com/gregsexton/gitv)
-
-gitk for Vim.
 
 #### [nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 
