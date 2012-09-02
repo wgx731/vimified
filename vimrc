@@ -27,7 +27,7 @@ endif
 " Use this variable inside your local configuration to declare 
 " which package you would like to include
 if ! exists('g:vimified_packages')
-    let g:vimified_packages = ['general', 'fancy', 'os', 'coding', 'ruby', 'python', 'html', 'css', 'js', 'color']
+    let g:vimified_packages = ['general', 'fancy', 'os', 'coding', 'ruby', 'python', 'html', 'css', 'js', 'color', 'latex']
 endif
 " }}}
 
@@ -176,6 +176,13 @@ if count(g:vimified_packages, 'color')
     Bundle 'sjl/badwolf'
     Bundle 'tomasr/molokai'
     Bundle 'zaiste/Atom'
+
+endif
+" }}}
+
+" _. Latex {{{
+if count(g:vimified_packages, 'latex')
+    Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
 endif
 " }}}
