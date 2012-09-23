@@ -9,7 +9,7 @@
 
 " Load external configuration before anything else {{{
 if filereadable(expand("~/.vim/before.vimrc"))
-  source ~/.vim/before.vimrc
+    source ~/.vim/before.vimrc
 endif
 " }}}
 
@@ -132,7 +132,7 @@ endif
 
 " _. Python {{{
 if count(g:vimified_packages, 'python')
-   Bundle 'vim-scripts/indentpython.vim' 
+    Bundle 'vim-scripts/indentpython.vim' 
 
 endif
 " }}}
@@ -224,7 +224,7 @@ endif
 
 if has('gui_running')
     set background=dark
-    colorscheme torte
+    colorscheme badwolf
 
     " Font
     " set guifont=Inconsolata:h14
@@ -241,9 +241,10 @@ if has('gui_running')
     set fullscreen
     set fuoptions=maxvert,maxhorz
     set transparency=10
-
 else
-    let &t_Co=256
+    if $COLORTERM == 'gnome-terminal'
+        set t_Co=256
+    endif
     colorscheme badwolf
 endif
 
@@ -552,11 +553,10 @@ vnoremap <F4> <ESC>:set invcursorcolumn<CR>
 " NERDCommenter
 " ------------------------------
 map <leader>/   <plug>NERDCommenterToggle
-
 " }}}
 
 " Load addidional configuration (ie to overwrite shorcuts) {{{
 if filereadable(expand("~/.vim/after.vimrc"))
-  source ~/.vim/after.vimrc
+    source ~/.vim/after.vimrc
 endif
 " }}}
