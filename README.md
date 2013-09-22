@@ -117,7 +117,7 @@ Syntax checking hacks for vim
 
 ### Fancy
 
-#### [powerline](https://github.com/Lokaltog/vim-powerline)
+#### [airline](https://github.com/bling/vim-airline)
 
 The ultimate vim statusline utility.
 
