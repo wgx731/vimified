@@ -27,7 +27,7 @@ endif
 " Use this variable inside your local configuration to declare 
 " which package you would like to include
 if ! exists('g:vimified_packages')
-    let g:vimified_packages = ['general', 'fancy', 'os', 'coding', 'ruby', 'python', 'html', 'css', 'js', 'color', 'latex']
+    let g:vimified_packages = ['general']
 endif
 " }}}
 
@@ -43,33 +43,32 @@ Bundle 'gmarik/vundle'
 " _. General {{{
 if count(g:vimified_packages, 'general')
 
-    Bundle 'tsaleh/vim-align'
-    Bundle 'tpope/vim-endwise'
     Bundle 'tpope/vim-repeat'
     Bundle 'tpope/vim-speeddating'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-unimpaired'
+    
     Bundle 'scrooloose/nerdtree' 
     nmap <C-u> :NERDTreeToggle<CR>
     " Disable the scrollbars (NERDTree)
     set guioptions-=r
     set guioptions-=L
 
-    Bundle 'kana/vim-textobj-user'
-    Bundle 'vim-scripts/YankRing.vim'
-    let g:yankring_replace_n_pkey = '<leader>['
-    let g:yankring_replace_n_nkey = '<leader>]'
-    let g:yankring_history_dir = '~/.vim/tmp'
-    nmap <leader>y :YRShow<cr>
-
-    Bundle 'michaeljsmith/vim-indent-object'
-    let g:indentobject_meaningful_indentation = ["haml", "sass", "python", "yaml", "markdown"]
-
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'vim-scripts/scratch.vim'
-
-    Bundle 'vim-scripts/bufexplorer.zip'
     Bundle 'vim-scripts/taglist.vim'
+    
+    Bundle 'majutsushi/tagbar' 
+    nmap <leader>t :TagbarToggle<CR>
+
+    Bundle 'scrooloose/nerdcommenter' 
+    nmap <leader># :call NERDComment(0, "invert")<cr>
+    vmap <leader># :call NERDComment(0, "invert")<cr>
+
+    Bundle 'sjl/splice.vim'
+
+    Bundle 'scrooloose/syntastic'
+    let g:syntastic_enable_signs=1
+    let g:syntastic_auto_loc_list=1
+    
 endif
 " }}}
 
@@ -81,57 +80,18 @@ if count(g:vimified_packages, 'fancy')
 endif
 " }}}
 
-" _. OS {{{
-if count(g:vimified_packages, 'os')
-    Bundle 'zaiste/tmux.vim'
-    Bundle 'benmills/vimux' 
-    map <Leader>rp :PromptVimTmuxCommand<CR>
-    map <Leader>rl :RunLastVimTmuxCommand<CR>
-
-    vmap <LocalLeader>rs "vy :call RunVimTmuxCommand(@v . "\n", 0)<CR>
-    nmap <LocalLeader>rs vip<LocalLeader>rs<CR>
-endif
-" }}}
-
-" _. Coding {{{
-if count(g:vimified_packages, 'coding')
-    Bundle 'majutsushi/tagbar' 
-    nmap <leader>t :TagbarToggle<CR>
-
-    Bundle 'scrooloose/nerdcommenter' 
-    nmap <leader># :call NERDComment(0, "invert")<cr>
-    vmap <leader># :call NERDComment(0, "invert")<cr>
-
-    " - Bundle 'msanders/snipmate.vim'
-    Bundle 'sjl/splice.vim'
-
-    Bundle 'tpope/vim-fugitive' 
-    nmap <leader>g :Ggrep
-    " ,f for global git serach for word under the cursor (with highlight)
-    nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R><C-W>"<CR>:ccl<CR>:cw<CR><CR>
-    " same in visual mode
-    :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
-
-    Bundle 'scrooloose/syntastic'
-    let g:syntastic_enable_signs=1
-    let g:syntastic_auto_loc_list=1
-
-endif
-" }}}
-
 " _. Ruby {{{
 if count(g:vimified_packages, 'ruby')
-    Bundle 'vim-ruby/vim-ruby'
-    Bundle 'tpope/vim-rails'
-    Bundle 'nelstrom/vim-textobj-rubyblock'
-    Bundle 'ecomba/vim-ruby-refactoring'
 
-    autocmd FileType ruby,eruby,yaml set tw=80 ai sw=2 sts=2 et
+    Bundle 'tpope/vim-endwise'
+    Bundle 'tpope/vim-rails'
+
 endif
 " }}}
 
 " _. Python {{{
 if count(g:vimified_packages, 'python')
+
     Bundle 'vim-scripts/indentpython.vim' 
 
 endif
@@ -139,8 +99,7 @@ endif
 
 " _. HTML {{{
 if count(g:vimified_packages, 'html')
-    Bundle 'tpope/vim-haml'
-    Bundle 'juvenn/mustache.vim'
+
     Bundle 'othree/html5.vim'
     Bundle 'tpope/vim-markdown'
 
@@ -163,8 +122,8 @@ endif
 
 " _. JS {{{
 if count(g:vimified_packages, 'js')
+
     Bundle 'pangloss/vim-javascript'
-    Bundle 'kchmck/vim-coffee-script'
     Bundle 'leshill/vim-json'
     Bundle 'itspriddle/vim-jquery'
 
@@ -173,19 +132,13 @@ endif
 
 " _. Color {{{
 if count(g:vimified_packages, 'color')
+
     Bundle 'sjl/badwolf'
     Bundle 'tomasr/molokai'
-    Bundle 'zaiste/Atom'
 
 endif
 " }}}
 
-" _. Latex {{{
-if count(g:vimified_packages, 'latex')
-    Bundle 'LaTeX-Box-Team/LaTeX-Box'
-
-endif
-" }}}
 
 " General {{{
 

@@ -30,7 +30,7 @@ Set up Vundle
 Set up your local configuration via `local.vimrc` file and choose package you
 want to use:
 
-    echo "let g:vimified_packages = ['general', 'coding', 'os', 'css', 'js', 'fancy', 'color']" > local.vimrc
+    echo "let g:vimified_packages = ['general', 'fancy', 'python', 'ruby', 'css', 'js', 'html', 'color']" > local.vimrc
 
 Install plugins: 
 
@@ -54,14 +54,12 @@ Inside your local configuration file `$HOME/.vim/local.vimrc` set `g:vimified_pa
 
 For example, if you are only interested in Ruby/Rails related stuff, put something like the following line inside `$HOME/.vim/local.vimrc`:
 
-    let g:vimified_packages = ['general', 'coding', 'ruby', 'color']
+    let g:vimified_packages = ['general', 'ruby', 'color']
 
 Avaible packages:
 
  * general
- * fancy
- * os
- * coding 
+ * fancy 
  * ruby
  * python
  * html
@@ -70,14 +68,6 @@ Avaible packages:
  * color
 
 ### General 
-
-#### [vim-align](https://github.com/tsaleh/vim-align)
-
-Clone of the Align.vba file, since I think VBA files are a freaking abomination. 
-
-#### [vim-endwise](https://github.com/tpope/vim-endwise)
-
-endwise.vim: wisely add "end" in ruby, endfunction/endif/more in vim script, etc 
 
 #### [vim-repeat](https://github.com/tpope/vim-repeat)
 
@@ -101,53 +91,9 @@ A tree explorer plugin for vim.
 
 **Command:** `ctrl-u`
 
-#### [vim-space](https://github.com/spiiph/vim-space)
-
-space.vim - Smart Space key for Vim
-
-#### [vim-textobj-user](https://github.com/kana/vim-textobj-user)
-
-Vim plugin: Support for user-defined text objects 
-
-#### [vim-yankring](https://github.com/chrismetcalf/vim-yankring)
-
-Mirror of yankring.vim 
-
-**Command:** `,y`
-
-#### [vim-ident-object](https://github.com/michaeljsmith/vim-indent-object)
-
-Vim plugin that defines a new text object representing lines of code at the same indent level. Useful for python/vim scripts, etc. 
-
-#### [ctrlp](https://github.com/kien/ctrlp.vim)
-
-Fuzzy file, buffer, mru and tag finder.
-
-**Command:** `ctrl-p`
-
-![ctrlp view](http://f.cl.ly/items/393i0b0N2C1H1e0Q2K3k/ctrlp.png)
-
-#### [bufexplorer](https://github.com/vim-scripts/bufexplorer.zip)
-
-Buffer Explorer / Browser.
-
 #### [taglist](https://github.com/vim-scripts/taglist.vim)
 
 Source code browser (supports C/C++, java, perl, python, tcl, sql, php, etc)
-
-### Fancy
-
-#### [powerline](https://github.com/Lokaltog/vim-powerline)
-
-The ultimate vim statusline utility.
-
-### OS
-
-#### [tmux.vim](https://github.com/zaiste/tmux.vim)
-
-#### [vimux](https://github.com/benmills/vimux)
-
-### Coding
 
 #### [tagbar](https://github.com/majutsushi/tagbar)
 
@@ -163,39 +109,27 @@ Vim plugin for intensely orgasmic commenting.
 
 #### [splice.vim](https://github.com/sjl/splice.vim)
 
-A Vim plugin for managing three-way merges.
-
-#### [vim-fugitive](https://github.com/tpope/vim-fugitive)
-
-fugitive.vim: a Git wrapper so awesome, it should be illegal 
+A Vim plugin for managing three-way merges. 
 
 #### [syntastic](https://github.com/scrooloose/syntastic)
 
 Syntax checking hacks for vim 
 
+### Fancy
+
+#### [powerline](https://github.com/Lokaltog/vim-powerline)
+
+The ultimate vim statusline utility.
+
 ### Ruby 
 
-#### [vim-ruby](https://github.com/vim-ruby/vim-ruby)
+#### [vim-endwise](https://github.com/tpope/vim-endwise)
+
+endwise.vim: wisely add "end" in ruby, endfunction/endif/more in vim script, etc 
 
 #### [vim-rails](https://github.com/tpope/vim-rails)
 
 rails.vim: Ruby on Rails power tools 
-
-#### [vim-textobj-rubyblock](https://github.com/nelstrom/vim-textobj-rubyblock)
-
-A custom text object for selecting ruby blocks.
-
-#### [vim-ruby-refactoring](https://github.com/ecomba/vim-ruby-refactoring)
-
-Refactoring tool for Ruby in vim!
-
-**Commands**:
-
-  - [RAddParameter](http://justinram.wordpress.com/2010/12/30/vim-ruby-refactoring-add-parameter-2/) : `,rap`
-  - [RInlineTemp](http://justinram.wordpress.com/2010/12/30/vim-ruby-refactoring-inline-temp/) : `,rit`
-  - [RExtractMethod](http://justinram.wordpress.com/2010/12/31/vim-ruby-refactoring-extract-method/) : `,rem`
-  - [RRenameLocalVariable](http://justinram.wordpress.com/2010/12/31/vim-ruby-refactoring-rename-local-variable/) : `,rrlv`
-  - [RRenameInstanceVariable](http://justinram.wordpress.com/2010/12/31/vim-ruby-refactoring-rename-instance-variable/) : `,rriv`
 
 ### PYTHON
 
@@ -204,14 +138,6 @@ Refactoring tool for Ruby in vim!
 An alternative indentation script for python
 
 ### HTML
-
-#### [vim-haml](https://github.com/tpope/vim-haml)
-
-Vim runtime files for Haml, Sass, and SCSS.
-
-#### [mustache.vim](https://github.com/juvenn/mustache.vim)
-
-Vim syntax file for mustache and handlebars(?)
 
 #### [html5.vim](https://github.com/othree/html5.vim)
 
@@ -233,8 +159,6 @@ This vim bundle adds syntax highlighting, indenting and autocompletion for the d
 
 ### JS
 
-#### [vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
-
 #### [vim-javascript](https://github.com/pangloss/vim-javascript)
 
 #### [vim-json](https://github.com/leshill/vim-json)
@@ -250,12 +174,6 @@ Molokai color scheme for Vim.
 #### [badwolf](https://github.com/sjl/badwolf)
 
 A Vim color scheme.
-
-### Misc
-
-#### [vim-pastie](https://github.com/tpope/vim-pastie)
-
-pastie.vim: interface for pastie.org 
 
 
 ## Call for Help
