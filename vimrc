@@ -68,6 +68,9 @@ if count(g:vimified_packages, 'general')
     Bundle 'scrooloose/syntastic'
     let g:syntastic_enable_signs=1
     let g:syntastic_auto_loc_list=1
+
+    Bundle 'editorconfig/editorconfig-vim'
+    Bundle 'derekwyatt/vim-scala'
     
 endif
 " }}}
@@ -75,6 +78,7 @@ endif
 " _. Fancy {{{
 if count(g:vimified_packages, 'fancy')
     Bundle 'bling/vim-airline'
+    set t_Co=256
 endif
 " }}}
 
